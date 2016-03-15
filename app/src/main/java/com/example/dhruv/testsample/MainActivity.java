@@ -61,22 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-//        StateView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-//
-//
-//                String view = StateView.getText().toString();
-//                if (view.length() >= 3) {
-//
-//                    places =display(view);
-//                    list(places);
-//                    return true;
-//                }
-//
-//                return false;
-//            }
-//        });
+
 
 
     }
