@@ -24,18 +24,19 @@ public class Details extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         Intent intent = getIntent();
-        String ids = intent.getStringExtra("Id");
+       final String ids = intent.getStringExtra("Id");
 
-        final  TextView city= (TextView) findViewById(R.id.textView2);
-        final  TextView state= (TextView) findViewById(R.id.textView3);
+        final TextView city= (TextView) findViewById(R.id.textView2);
+        final TextView state= (TextView) findViewById(R.id.textView3);
         final TextView statecode= (TextView) findViewById(R.id.textView4);
-        final TextView  country= (TextView) findViewById(R.id.textView5);
+        final TextView country= (TextView) findViewById(R.id.textView5);
         final TextView countrycode= (TextView) findViewById(R.id.textView6);
         final TextView isd= (TextView) findViewById(R.id.textView7);
         final TextView gplace= (TextView) findViewById(R.id.textView8);
         final TextView lat= (TextView) findViewById(R.id.textView9);
         final TextView longi= (TextView) findViewById(R.id.textView10);
         final TextView status= (TextView) findViewById(R.id.textView11);
+        final TextView cityid= (TextView) findViewById(R.id.textView12);
 
 
         mRequestQueue = Volley.newRequestQueue(this);
@@ -51,28 +52,28 @@ public class Details extends AppCompatActivity {
                 Log.d("response:", jsonObject.toString());
                 try{
 
-                       // JSONObject jsonObject = new JSONObject(response.toString());
                         final String cityname = jsonObject.getString("CityName");
                         final String statename = jsonObject.getJSONObject("State").getString("StateName");
                         final String scode = jsonObject.getJSONObject("State").getString("StateCode");
-                        final String extraval2 = jsonObject.getJSONObject("State").getString("StateCode");
-                        final String extraval3 = jsonObject.getString("ExtraValue3");
-                        final String extraval4 = jsonObject.getString("ExtraValue4");
-                        final String extraval5 = jsonObject.getString("ExtraValue5");
-                        final String extraval6 = jsonObject.getString("ExtraValue6");
-                        final String extraval7 = jsonObject.getString("ExtraValue7");
-                        final String extraval8 = jsonObject.getString("ExtraValue8");
-                        final String extraval9 = jsonObject.getString("ExtraValue9");
+                        final String countryname = jsonObject.getJSONObject("Country").getString("CountryName");
+                        final String countrycodes = jsonObject.getJSONObject("Country").getString("CountryCode");
+                        final String isdc = jsonObject.getJSONObject("Country").getString("IsdCode");
+                        final String gplaceid = jsonObject.getString("GPlaceId");
+                        final String latitude = jsonObject.getString("Latitude");
+                        final String longitude = jsonObject.getString("Longitude");
+                        final String stats = jsonObject.getString("ActiveStatus");
+
                     city.setText(cityname);
                     state.setText(statename);
                     statecode.setText(scode);
-                    country.setText(extraval2);
-                    countrycode.setText(extraval3);
-                    isd.setText(extraval4);
-                    gplace.setText(extraval5);
-                    lat.setText(extraval6);
-                    longi.setText(extraval7);
-                    status.setText(extraval8);
+                    country.setText(countryname);
+                    countrycode.setText(countrycodes);
+                    isd.setText(isdc);
+                    gplace.setText(gplaceid);
+                    lat.setText(latitude);
+                    longi.setText(longitude);
+                    status.setText(stats);
+                    cityid.setText(ids);
 
 
                 }catch(JSONException e){e.printStackTrace();}
